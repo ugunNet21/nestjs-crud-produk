@@ -1,5 +1,15 @@
+import {
+  IsNumber,
+  IsString,
+} from 'class-validator';
+
 export class CreateProdukDto {
-    nama: string;
-    deskripsi: string;
-    harga: number;
-  }
+  @IsString()
+  nama: string;
+
+  @IsString()
+  deskripsi: string;
+
+  @IsNumber()
+  harga: number;
+}

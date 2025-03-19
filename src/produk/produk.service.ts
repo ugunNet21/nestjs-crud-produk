@@ -7,29 +7,25 @@ import { Produk } from './produk.interface';
 
 @Injectable()
 export class ProdukService {
-  private produk: Produk[] = []; // Definisikan tipe data array produk
+  private produk: Produk[] = [];
 
-  // CREATE: Tambah produk baru
   create(createProdukDto: CreateProdukDto): Produk {
     const newProduk: Produk = {
-      id: Date.now().toString(), // Generate ID unik
+      id: Date.now().toString(),
       ...createProdukDto,
     };
     this.produk.push(newProduk);
     return newProduk;
   }
 
-  // READ: Ambil semua produk
   findAll(): Produk[] {
     return this.produk;
   }
 
-  // READ: Ambil satu produk berdasarkan ID
   findOne(id: string): Produk | null {
     return this.produk.find((produk) => produk.id === id) || null;
   }
 
-  // UPDATE: Update produk berdasarkan ID
   update(id: string, updateProdukDto: UpdateProdukDto): Produk | null {
     const index = this.produk.findIndex((produk) => produk.id === id);
     if (index !== -1) {
@@ -39,7 +35,6 @@ export class ProdukService {
     return null;
   }
 
-  // DELETE: Hapus produk berdasarkan ID
   remove(id: string): Produk | null {
     const index = this.produk.findIndex((produk) => produk.id === id);
     if (index !== -1) {

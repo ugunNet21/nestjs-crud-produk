@@ -1,5 +1,19 @@
+import {
+  IsNumber,
+  IsOptional,
+  IsString,
+} from 'class-validator';
+
 export class UpdateProdukDto {
-    nama?: string;
-    deskripsi?: string;
-    harga?: number;
-  }
+  @IsString()
+  @IsOptional()
+  nama?: string;
+
+  @IsString()
+  @IsOptional()
+  deskripsi?: string;
+
+  @IsNumber()
+  @IsOptional()
+  harga?: number;
+}
